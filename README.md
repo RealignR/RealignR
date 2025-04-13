@@ -75,11 +75,8 @@ GRAIL is the engine behind RealignR. It combines gradient observation, adaptive 
 
 ---
 
-## 🤝 Built by
 
-*You. On your machine. From the field. With intuition.*
 
-Let’s teach models how to learn like we do.
 
 ---
 
