@@ -1,85 +1,80 @@
-# RealignR
+# 🧠 RealignR: A Lifelong Adaptive Optimization System
 
-**A Self-Realigning Optimizer Core for Deep Learning**  
-*Powered by GRAIL: Gradient Realignment for Adaptive Infinite Learning*
+**RealignR** is a self-regulating machine learning training framework that fuses:
+- 🧬 Physics-inspired conductance optimization (ARP)
+- 🤖 GPT-based control steering
+- 🔁 Lifelong learning via dataset switching with memory retention
+- 🧠 CPR (Conduction Phase Reinforcement) for plateau recovery
+- 📈 Real-time logging and metric-based introspection
 
----
+## 🚀 System Overview
 
-## 🚀 What is RealignR?
+| Component            | Function                                                  |
+|---------------------|-----------------------------------------------------------|
+| **ARP Optimizer**   | Adaptive Resistance Principle — reinforcement-based updates via G₍ᵢⱼ₎ |
+| **CPR**             | Detects optimization stalls and triggers adaptive resets |
+| **GPT Controller**  | Dynamically adjusts alpha/mu using TensorBoard metrics and memory feedback |
+| **Dataset Switcher**| Loads datasets based on `dataset_schedule.json` and recalls saved G₍ᵢⱼ₎ memory per domain |
+| **Watcher Memory**  | Stores GPT responses and training history for contextual tuning |
+| **TensorBoard Live**| Tracks accuracy, loss, G_mean, alpha, mu, CPR_trigger, etc. |
 
-**RealignR** is the first optimizer that knows when it's off — and knows how to realign.
+## 💾 Features
 
-It doesn’t just train. It observes. It remembers. It corrects.
-RealignR is designed to recover from collapse without restarting training.
+- **Multi-dataset stability**: Seamlessly switches between CIFAR100, SVHN, and CIFAR10 without loss of performance.
+- **Self-tuning resistance**: Alpha and Mu are continuously adjusted by both internal logic and external GPT feedback.
+- **Adaptive checkpoints**: Memory-aware conductance states saved per dataset.
+- **CPR Recovery System**: Loss plateaus are auto-resolved via conductance resets and reactivation.
+- **Infinity Mode**: Model trains indefinitely, smoothly adapting over time and tasks.
 
----
+## 🧪 Results
 
-## 🧠 Key Features
+- **CIFAR100**: 85%+ accuracy
+- **SVHN**: 94.5%+ accuracy
+- **CIFAR10**: 96%+ accuracy
 
-| Feature | Description |
-|---------|-------------|
-| **Observer Mode** | Captures stable resistance memory (`G_ij`) during early training (epoch 25) before collapse occurs |
-| **Slope Monitoring** | Detects failure by tracking loss descent rate (slope) |
-| **G Drift Detection** | Measures how far current resistance memory has drifted from control benchmarks |
-| **CPR Triggering** | Fires memory reset only when slope + drift both signal misalignment |
-| **Memory Recovery** | Reinitializes G with noise + fresh gradients, centered on prior alignment |
+Across all datasets, ARP retained performance through multiple switches while maintaining low variance and clean GradNorm.
 
----
+## 📊 Metrics Tracked
 
-## 📦 Installation
+- Accuracy / Loss
+- G_mean (conductance average)
+- alpha / mu (resistance memory tuning)
+- CPR_trigger (stability intervention log)
+- GradNorm (gradient pressure / instability signal)
+- AccuracyVariance (performance consistency)
 
-Coming soon as a pip package.
+## 📂 Files Included
 
-For now:
-```bash
-git clone https://github.com/yourname/realignr.git
-cd realignr
-pip install -e .
-```
+- `appr.py`: Main training loop with GPT + CPR + dataset switching
+- `dataset_switcher_patch.py`: Modular G₍ᵢⱼ₎ memory system
+- `watch_tensorboard_feedback_live.py`: GPT control feedback + TensorBoard integration
+- `realignr_*.csv`: Live run logs, checkpoint metadata, and training scalars
 
----
+## 🛠 Tech Stack
 
-## 🧪 Quick Start (CIFAR100)
+- Python 3.11
+- PyTorch + AMP
+- TensorBoard
+- OpenAI GPT-4 API
+- CUDA-enabled training (dual RTX 3090 Ti)
 
-```bash
-python arp_resume_CPRv7_3_dualsensor.py
-```
+## 🌍 Use Cases
 
----
+- Optimizer research / meta-learning
+- Reinforcement-learning-like auto-tuners
+- Continuous learning systems
+- Online model adaptation for changing data streams
 
-## 🔁 Why This Matters
+## 🔮 Future Directions
 
-Traditional optimizers collapse and require manual reset or restarts. RealignR:
-- Stores memory of good learning states
-- Detects when it's gone off track
-- Recovers without forgetting
-
-This enables **infinite training**, **continual learning**, and **autonomous error correction.**
-
----
-
-## 📐 Powered by GRAIL
-
-> **Gradient Realignment for Adaptive Infinite Learning**
-
-GRAIL is the engine behind RealignR. It combines gradient observation, adaptive memory, and self-correction into a continuous system.
-
----
-
-## 📈 Coming Soon
-
-- TensorBoard tracking for G drift
-- Visualizer for CPR trigger events
-- Multi-dataset support (ImageNet, text models)
-- Layer-specific realignment logic
-
----
-
-
-
+- Meta-optimizer: Fine-tune GPT based on RealignR's history
+- Phase scheduler: Curriculum-based learning stages
+- Live dashboard: Visual timeline + decision trails
+- Human-in-the-loop optimizer coaching interface
 
 ---
 
-## License
-MIT
+Want to try it live or sponsor a buildout? [Message Ryan McKenna](mailto:you@example.com)
+
+
 
